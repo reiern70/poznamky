@@ -1,0 +1,43 @@
+public class CustomRequestCycleListener extends AbstractRequestCycleListener implements Serializable {
+
+    @Override
+    public void onBeginRequest(RequestCycle cycle) {
+        if (CustomSession.exists()) {
+            MDC.put("sessionId", CustomSession.get().getId());
+            if (CustomSession.getUserId() != null) {
+                MDC.put("userId", CustomSession.getUserId());
+            } else { 
+                // MDC.remove("userId");
+            }
+        } else {
+            MDC.clear();
+        }
+
+        Log.REQUEST_PROCESSING.debug("onBeginRequest " + getParamString(cycle));
+    }
+
+    @Override
+    public void onEndRequest(RequestCycle cycle) {
+        Log.REQUEST_PROCESSING.debug("onEndRequest " + getParamString(cycle));
+    }
+
+    @Override
+    public void onDetach(RequestCycle cycle) {
+        Log.REQUEST_PROCESSING.debug("onDetach " + getParamString(cycle));
+    }
+
+    private StringBuilder getParamString(RequestCycle cycle) {
+        Request req = cycle.getRequest();
+        StringBuilder bld = new StringBuilder();
+        Set<String> params = req.getRequestParameters().getParameterNames();
+        bld.append("[");
+        for (String name : params) {
+            bld.append(name);
+            bld.append("=");
+            List<StringValue> values = req.getRequestParameters().getParameterValues(name);
+            bld.append(values);
+        }
+        bld.append("]");
+        return bld;
+    }
+}
