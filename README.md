@@ -1,3 +1,7 @@
+Logging formatter pattern how to
+https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/PatternLayout.html
+
+
 CDI
 https://dzone.com/articles/cdi-di-p1
 http://weld.cdi-spec.org/
