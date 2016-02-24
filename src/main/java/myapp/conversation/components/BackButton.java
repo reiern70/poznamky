@@ -11,9 +11,6 @@ import javax.inject.Inject;
  */
 public class BackButton extends Link {
 
-    @Inject
-    Client client;
-
     private int prevPageId;
 
     public BackButton(){
@@ -28,7 +25,6 @@ public class BackButton extends Link {
     @Override
     public void onClick() {
         PageReference ref = new PageReference(prevPageId);
-        client.setCurrentPageId(prevPageId);
         setResponsePage(ref.getPage());
     }
 }
