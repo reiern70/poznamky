@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:wicket="http://wicket.apache.org">
+<body>
+<wicket:head>
+    <script src="assets/slider/jquery.min.js"></script>
+    <script src="assets/slider/nouislider.min.js"></script>
+    <script src="assets/slider/PacolSlider.js"></script>
+    <link href="assets/slider/jquery.nouislider.min.css" rel="stylesheet">
+</wicket:head>
+<wicket:panel>
+    <h1>Slidersm</h1>
+
+
+    <div class="slider_wrapper">
+        <div class="vynimka">
+            <div class="range-slider" wicket:id="slider"></div>
+        </div>
+    </div>
+
+
+    <div class="slider-input" wicket:id="inputWrapper">
+        <input type="text" class="input" wicket:id="sliderInput"/>
+    </div>
+    <div class="clear"></div>
+
+    <wicket:container wicket:id="debugFields">
+        <div class="slider-labels">
+            <span class="left" id="minValueLabel"></span>
+            <span class="right" id="maxValueLabel"></span>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        set min: <input type="number" id="setMinVal"/>
+        <button id="setMin">Ok</button>
+        <br/>
+        set maxBez: <input type="number" id="setMaxBezVal"/>
+        <button id="setMaxBez">Ok</button>
+        <br/>
+        set maxSvyn <input type="number" id="setMaxVynVal"/>
+        <button id="setMaxVyn">Ok</button>
+        <br/>
+    </wicket:container>
+</wicket:panel>
+</body>
+</html>

@@ -1,0 +1,31 @@
+apply plugin: 'idea'
+apply plugin: 'war'
+
+ext.wicketVersion = "7.1.0"
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+        resources {
+            srcDir 'src/main/resources'
+            srcDir 'src/main/java'
+        }
+    }
+}
+
+dependencies {
+    compile group: 'org.apache.wicket', name: 'wicket-core', version:'7.0.0'
+    compile group: 'org.apache.wicket', name: 'wicket-cdi', version:'7.0.0'
+    compile group: 'org.apache.wicket', name: 'wicket-auth-roles', version:'7.0.0'
+    compile group: 'org.jboss.seam.conversation', name: 'seam-conversation-weld', version:'3.0.0.Final'
+    compile group: 'org.jboss.weld.servlet', name: 'weld-servlet-core', version:'1.1.4.Final'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    providedCompile group: 'javax', name: 'javaee-web-api', version:'6.0'
+    providedCompile group: 'org.jboss.spec.javax.servlet', name: 'jboss-servlet-api_3.0_spec', version:'1.0.2.Final'
+}
